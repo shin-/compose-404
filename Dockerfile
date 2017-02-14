@@ -11,6 +11,6 @@ RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 581
 RUN apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends python-pip python-setuptools docker-engine
-RUN pip install docker-compose
+RUN pip install docker-compose==1.10.1
 
 CMD docker-compose --verbose up
