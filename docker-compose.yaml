@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  docker:
+    image: docker:dind
+    cap_add:
+      - ALL
+  client:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: test
+    links:
+      - docker:docker
+    environment:
+      - DOCKER_HOST=docker:2375
