@@ -1,6 +1,5 @@
 FROM ubuntu
 
-ADD compose-child.yaml compose-child.yaml
 ENV COMPOSE_PROJECT_NAME test
 ENV COMPOSE_FILE compose-child.yaml
 
@@ -12,5 +11,7 @@ RUN apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial mai
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends python-pip python-setuptools docker-engine
 RUN pip install docker-compose==1.10.1
+RUN rm -rf /usr/share/python-wheels/requests*
+ADD compose-child.yaml compose-child.yaml
 
 CMD docker-compose --verbose up

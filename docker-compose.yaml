@@ -5,6 +5,7 @@ services:
     image: docker:dind
     cap_add:
       - ALL
+    privileged: true
   client:
     build:
       context: ./
